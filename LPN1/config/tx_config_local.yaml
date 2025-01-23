@@ -1,6 +1,6 @@
-MODE: RX
+MODE: TX
 MAX_FREQ_OFF: 4.0E+3 # This isnot used anymore maybe add sync
-PERIOD: 2 # How many burst should be sent in a sec
+PERIOD: 50 # How many burst should be sent in a sec
 CALIBRATION:
   TYPE: INTERNAL
   RX_REF: 0
@@ -10,10 +10,10 @@ CALIBRATION:
 WAVEFORM: ZC # PN, CHIRP, and Zadoff-Chu(ZC) for now
 # SAMPLING_DURATION: 0.2
 RECV_OPTS:
-  DURATION: 0.001
+  DURATION: 0.01
   CALC:
     POWER: true
-    PL: false
+    PL: true
     PLOT: false
   OUTPUT_TYPE: 'npz' # npz, mat, or sigmf
 FILTER:
@@ -30,7 +30,7 @@ WAV_OPTS:
     BW: 5.6e+7
   ZC:
     ROOT_IND: 200
-    SEQ_LEN: 401
+    SEQ_LEN: 401 # 401
   PN:
     POLY: [1,0,0,0,0,1,1,0,1,1]
       # POLY: [1, 0, 0, 0, 0, 1, 0, 0, 1]
@@ -44,13 +44,13 @@ WAV_OPTS:
 USRP:
   #SERIAL: '32332EC'
   SERIAL: ''
-  NUM_FRAMES: 60
-  GAIN: 70
-  SAMPLE_RATE: 5.6E+7
+  NUM_FRAMES: 32
+  GAIN: 64 
+  SAMPLE_RATE: 1.6E+7
   CENTER_FREQ: 3.564e+9
-  INIT_DELAY: 0.5 # 0.05
-  CLK_REF: EXT
-  PPS_REF: EXT
+  INIT_DELAY: 2.0 # 0.05
+  CLK_REF: INT
+  PPS_REF: INT
 INTERPOLATION:
   ENABLED: false
   SPS: 8
@@ -60,6 +60,5 @@ INTERPOLATION:
 GPS:
   ENABLED: false
   SOURCE: gnss # or vehicle
-  DIR: /dev/ttyACM0
-# Note for measurement
-NOTE: "Walking with a reflector between RX and TX"
+  DIR: /dev/ttyACM1 
+NOTE: "TX is a drone, RX are 3 BSs. "  
