@@ -1,6 +1,6 @@
 MODE: RX
 MAX_FREQ_OFF: 4.0E+3 # This isnot used anymore maybe add sync
-PERIOD: 50 # How many burst should be sent in a sec
+PERIOD: 100 # How many burst should be sent in a sec
 CALIBRATION:
   TYPE: INTERNAL
   RX_REF: 0
@@ -10,7 +10,7 @@ CALIBRATION:
 WAVEFORM: ZC # PN, CHIRP, and Zadoff-Chu(ZC) for now
 # SAMPLING_DURATION: 0.2
 RECV_OPTS:
-  DURATION: 0.01
+  DURATION: 0.0005
   CALC:
     POWER: true
     PL: true
@@ -47,7 +47,7 @@ USRP:
   NUM_FRAMES: 60
   GAIN: 70
   SAMPLE_RATE: 5.6E+7
-  CENTER_FREQ: 3.564e+9
+  CENTER_FREQ: 3.32e+9
   INIT_DELAY: 0.5 # 0.05
   CLK_REF: EXT
   PPS_REF: EXT
@@ -58,7 +58,7 @@ INTERPOLATION:
   ROLLOFF: 0.35
   THR_OFF: 25
 GPS:
-  ENABLED: true
+  ENABLED: false
   SOURCE: gnss # or vehicle
   DIR: /dev/ttyACM0
 # Note for measurement
